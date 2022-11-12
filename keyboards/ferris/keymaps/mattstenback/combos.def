@@ -1,0 +1,10 @@
+// Right Hand
+COMB(IO_DEL,        KC_DEL,   KC_I, KC_O)
+COMB(KL_BSPC,       KC_BSPC,  KC_K, KC_L)
+COMB(JK_COLN,       KC_COLN,  KC_J, KC_K)
+COMB(COMM_DOT_ENT,  KC_ENT,   KC_COMM, KC_DOT)
+
+// Left Hand
+COMB(WE_TAB,     KC_TAB,      KC_W, KC_E)
+COMB(SD_ESC,     KC_ESC,      KC_S, KC_D)
+SUBS(FV_HSPLIT,  ":vsp",      KC_F, KC_V)
