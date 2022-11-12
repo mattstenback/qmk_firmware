@@ -34,6 +34,7 @@ enum layers {
     NAV,
     NUM,
     NUM_PAD,
+    BASE_CLMK,
 };
 
 enum keycodes {
