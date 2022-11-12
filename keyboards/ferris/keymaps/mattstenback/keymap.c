@@ -10,6 +10,7 @@
 #define LA_SYM MO(SYM)
 #define LA_NAV MO(NAV)
 #define SPC_PAD LT(NUM_PAD, KC_SPC)
+#define SFT_BSP LSFT_T(KC_BSPC)
 #define xxxxxxx KC_NO
 
 // MacOS macros
@@ -50,27 +51,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,     KC_Y,      KC_U,    KC_I,    KC_O,    KC_QUOT,
         KC_A,    KC_S,    KC_D,    KC_F,    KC_G,     KC_H,      KC_J,    KC_K,    KC_L,    KC_P,
         KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,     KC_N,      KC_M,    KC_COMM, KC_DOT,  KC_SCLN,
-                                   LA_NAV,  SPC_PAD,  KC_LSFT,   LA_SYM
+                                   LA_NAV,  SPC_PAD,  SFT_BSP,   LA_SYM
     ),
 
     [SYM] = LAYOUT(
-        KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC, KC_LT,   KC_GT,   KC_RBRC, KC_RCBR, KC_RPRN, KC_GRV,
-        KC_NUHS, KC_EQL,  KC_MINS, KC_UNDS, KC_SLSH, KC_COLN, OS_CMD,  OS_CTRL, OS_ALT,  OS_SHFT,
+        KC_GRV,  KC_LPRN, KC_LCBR, KC_LBRC, KC_LT,   KC_GT,   KC_RBRC, KC_RCBR, KC_RPRN, KC_HASH,
+        KC_ESC,  KC_EQL,  KC_MINS, KC_UNDS, KC_SLSH, KC_COLN, OS_CMD,  OS_CTRL, OS_ALT,  OS_SHFT,
         KC_AT,   KC_QUES, KC_PLUS, KC_PERC, KC_EXLM, KC_AMPR,  KC_DLR, KC_PIPE, KC_BSLS, KC_CIRC,
                                    _______, _______, _______, _______
     ),
 
     [NAV] = LAYOUT(
         KC_TAB,  SPOTL,   TAB_L,   TAB_R,   KC_VOLU, VIM_BUFL, KC_WH_D, KC_WH_U, VIM_BUFR, KC_DEL, 
-        OS_SHFT, OS_ALT,  OS_CTRL, OS_CMD,  KC_VOLD, KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT,  KC_BSPC,
-        ONEPW,   SC_SHOT, BR_BACK, BR_FORW, KC_MPLY, KC_HOME,  KC_PGDN, KC_PGUP, KC_END,   KC_ENT,
+        OS_SHFT, OS_ALT,  OS_CTRL, OS_CMD,  KC_VOLD, KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT,  KC_ENT,
+        ONEPW,   SC_SHOT, BR_BACK, BR_FORW, KC_MPLY, KC_HOME,  KC_PGDN, KC_PGUP, KC_END,   KC_BSPC,
                                    _______, _______, _______, _______
     ),
 
     [NUM] = LAYOUT(
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,
         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
-        KC_F11,  xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, KC_F12,
+        KC_F11,  xxxxxxx, xxxxxxx, xxxxxxx, TG(BASE), TG(BASE_CLMK), xxxxxxx, xxxxxxx, xxxxxxx, KC_F12,
                                    _______, _______, _______, _______
     ),
 
@@ -79,6 +80,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         xxxxxxx,  xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, KC_4,   KC_5,    KC_6, xxxxxxx,
         xxxxxxx,  xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, KC_1,   KC_2,    KC_3, xxxxxxx,
                                     _______, _______, KC_0,    _______
+    ),
+    
+    [BASE_CLMK] = LAYOUT(
+        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,     KC_J,      KC_L,    KC_U,    KC_Y,    KC_QUOT,
+        KC_A,    KC_R,    KC_S,    KC_T,    KC_G,     KC_M,      KC_N,    KC_E,    KC_I,    KC_O,
+        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,     KC_K,      KC_H,    KC_COMM, KC_DOT,  KC_SCLN,
+                                   LA_NAV,  SPC_PAD,  SFT_BSP,   LA_SYM
     ),
 };
 
