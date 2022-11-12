@@ -2,13 +2,14 @@
 
 #include QMK_KEYBOARD_H
 
-#include "g/keymap_combo.h"
+// #include "g/keymap_combo.h"
 #include "oneshot.h"
 #include "swapper.h"
 
 // Keymap helpers
 #define LA_SYM MO(SYM)
 #define LA_NAV MO(NAV)
+#define SPC_PAD LT(NUM_PAD, KC_SPC)
 #define xxxxxxx KC_NO
 
 // MacOS macros
@@ -31,6 +32,7 @@ enum layers {
     SYM,
     NAV,
     NUM,
+    NUM_PAD,
 };
 
 enum keycodes {
@@ -47,21 +49,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT(
         KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,     KC_Y,      KC_U,    KC_I,    KC_O,    KC_QUOT,
         KC_A,    KC_S,    KC_D,    KC_F,    KC_G,     KC_H,      KC_J,    KC_K,    KC_L,    KC_P,
-        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,     KC_N,      KC_M,    KC_COMM, KC_DOT,  KC_UNDS,
-                                   LA_NAV,  KC_SPC,   KC_LSFT,   LA_SYM
+        KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,     KC_N,      KC_M,    KC_COMM, KC_DOT,  KC_SCLN,
+                                   LA_NAV,  SPC_PAD,  KC_LSFT,   LA_SYM
     ),
 
     [SYM] = LAYOUT(
-        KC_GRV,  KC_LPRN, KC_LCBR, KC_LBRC, KC_LT,   KC_GT,   KC_RBRC, KC_RCBR, KC_RPRN, KC_TILD,
-        KC_ASTR, KC_PIPE, KC_EQL,  KC_MINS, KC_EXLM, KC_HASH, OS_CMD,  OS_CTRL, OS_ALT,  OS_SHFT,
-        KC_AT,   KC_SLSH, KC_PERC, KC_PLUS, KC_QUES, KC_DLR,  KC_AMPR, KC_SCLN, KC_BSLS, KC_CIRC,
+        KC_ESC,  KC_LPRN, KC_LCBR, KC_LBRC, KC_LT,   KC_GT,   KC_RBRC, KC_RCBR, KC_RPRN, KC_GRV,
+        KC_NUHS, KC_EQL,  KC_MINS, KC_UNDS, KC_SLSH, KC_COLN, OS_CMD,  OS_CTRL, OS_ALT,  OS_SHFT,
+        KC_AT,   KC_QUES, KC_PLUS, KC_PERC, KC_EXLM, KC_AMPR,  KC_DLR, KC_PIPE, KC_BSLS, KC_CIRC,
                                    _______, _______, _______, _______
     ),
 
     [NAV] = LAYOUT(
-        SW_WIN,  SPOTL,   TAB_L,   TAB_R,   KC_VOLU, VIM_BUFL, KC_WH_D, KC_WH_U, VIM_BUFR, KC_PSTE, 
-        OS_SHFT, OS_ALT,  OS_CTRL, OS_CMD,  KC_VOLD, KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT,  KC_COPY,
-        ONEPW,   SC_SHOT, BR_BACK, BR_FORW, KC_MPLY, KC_HOME,  KC_PGDN, KC_PGUP, KC_END,   KC_CUT,
+        KC_TAB,  SPOTL,   TAB_L,   TAB_R,   KC_VOLU, VIM_BUFL, KC_WH_D, KC_WH_U, VIM_BUFR, KC_DEL, 
+        OS_SHFT, OS_ALT,  OS_CTRL, OS_CMD,  KC_VOLD, KC_LEFT,  KC_DOWN, KC_UP,   KC_RGHT,  KC_BSPC,
+        ONEPW,   SC_SHOT, BR_BACK, BR_FORW, KC_MPLY, KC_HOME,  KC_PGDN, KC_PGUP, KC_END,   KC_ENT,
                                    _______, _______, _______, _______
     ),
 
@@ -70,6 +72,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
         KC_F11,  xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, KC_F12,
                                    _______, _______, _______, _______
+    ),
+
+    [NUM_PAD] = LAYOUT(
+        xxxxxxx,  xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, KC_7,   KC_8,    KC_9, xxxxxxx,
+        xxxxxxx,  xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, KC_4,   KC_5,    KC_6, xxxxxxx,
+        xxxxxxx,  xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, xxxxxxx, KC_1,   KC_2,    KC_3, xxxxxxx,
+                                    _______, _______, KC_0,    _______
     ),
 };
 
