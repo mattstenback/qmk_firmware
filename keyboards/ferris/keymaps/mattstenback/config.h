@@ -15,3 +15,7 @@
 #define MOUSEKEY_WHEEL_INTERVAL 50
 // The default is 40
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 100
+
+#define COMBO_VARIABLE_LEN
+#define COMBO_TERM 35
+  
