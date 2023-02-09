@@ -1,0 +1,14 @@
+// Right Hand
+COMB(IO_DEL,        KC_DEL,   KC_I, KC_O)
+COMB(KL_BSPC,       KC_BSPC,  KC_K, KC_L)
+COMB(COMM_DOT_ENT,  KC_ENT,   KC_COMM, KC_DOT)
+COMB(UI_SCLN,       KC_SCLN,  KC_U, KC_I)
+COMB(JK_COLN,       KC_COLN,  KC_J, KC_K)
+SUBS(VIM_SAVE,      ":w",     KC_M, KC_COMM)
+SUBS(VIM_SAVE_QUIT, ":wq",    KC_M, KC_COMM, KC_DOT)
+
+// Left Hand
+COMB(WE_TAB,     KC_TAB,      KC_W, KC_E)
+COMB(SD_ESC,     KC_ESC,      KC_S, KC_D)
+COMB(DF_SLASH,   KC_SLSH,     KC_D, KC_F)
+SUBS(FV_VSPLIT,  ":vsp",      KC_F, KC_V)
